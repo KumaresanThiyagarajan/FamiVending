@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
-import product1Img from '../../product-1.png';
-import product2Img from '../../product2.png';
-import product3Img from '../../product3.png';
-
-const carouselImages = [product1Img, product2Img, product3Img];
+const carouselImages = ['/product-1.png', '/product2.png', '/product3.png'];
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

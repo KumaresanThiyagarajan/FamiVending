@@ -1,15 +1,11 @@
 import React from 'react';
 import './Products.css';
 
-import product1Img from '/product-1.png';
-import product2Img from '/product2.png';
-import product3Img from '/product3.png';
-
 const productsData = [
   {
     id: 1,
     name: '22″ inch Smart Combo Vending Machine',
-    image: product1Img,
+    image: '/product-1.png',
     specs: [
       '22-inch interactive touchscreen with advertisement capabilities.',
       'Refrigerated vending machine suitable for different types of products.',
@@ -28,7 +24,7 @@ const productsData = [
   {
     id: 2,
     name: '10″ inch Smart Combo Vending Machine',
-    image: product2Img,
+    image: '/product2.png',
     specs: [
       '10-inch interactive touchscreen with advertisement capabilities.',
       'Refrigerated vending machine suitable for different types of products.',
@@ -47,7 +43,7 @@ const productsData = [
   {
     id: 3,
     name: '10C Combo Vending Machine',
-    image: product3Img,
+    image: '/product3.png',
     specs: [
       'Compact design ideal for small to medium-sized locations.',
       'Refrigerated vending machine with versatile product compatibility.',
