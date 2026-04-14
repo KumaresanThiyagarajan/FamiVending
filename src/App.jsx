@@ -3,9 +3,11 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import WhyChooseUs from './components/WhyChooseUs';
+import Team from './components/Team';
 import Products from './components/Products';
+import ReadyToWork from './components/ReadyToWork';
+import Experience from './components/Experience';
 import Blog from './components/Blog';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Loading from './components/Loading';
 
@@ -22,9 +24,11 @@ function App() {
           <Hero />
           <About />
           <WhyChooseUs />
+          <Team />
           <Products />
+          <ReadyToWork />
+          <Experience />
           <Blog />
-          <Contact />
           <Footer />
         </>
       )}

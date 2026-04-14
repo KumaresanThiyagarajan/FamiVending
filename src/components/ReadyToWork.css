@@ -1,0 +1,78 @@
+.ready-to-work {
+  position: relative;
+  padding: 120px 0;
+  /* Using a realistic office background similar to image */
+  background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover no-repeat fixed;
+  text-align: center;
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.rtw-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.rtw-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.rtw-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #cca45b; /* Gold */
+  border-radius: 50%;
+  margin: 0 auto 30px;
+  position: relative;
+}
+
+.rtw-pulse {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(204, 164, 91, 0.6); }
+  60% { box-shadow: 0 0 0 40px rgba(204, 164, 91, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(204, 164, 91, 0); }
+}
+
+.rtw-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.rtw-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.rtw-btn {
+  background-color: #cca45b;
+  color: #fff;
+  border: none;
+  padding: 16px 45px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rtw-btn:hover {
+  background-color: #b38d4a;
+}
+
+@media (max-width: 768px) {
+  .rtw-title {
+    font-size: 2.2rem;
+  }
+}

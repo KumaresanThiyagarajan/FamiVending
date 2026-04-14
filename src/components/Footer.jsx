@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.css';
-import logoImg from '../../logo.png';
 
 const Footer = () => {
   return (
@@ -8,7 +7,7 @@ const Footer = () => {
       <div className="container footer-container">
         <div className="footer-brand">
           <div className="footer-logo">
-            <img src={logoImg} alt="Fami Vending" className="footer-logo-img" />
+            <img src="/logo.png" alt="Fami Vending" className="footer-logo-img" />
           </div>
           <p className="footer-tagline">
             Best Future Tech Vending Machine<br />For Your Business.
