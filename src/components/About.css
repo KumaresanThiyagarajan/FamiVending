@@ -1,7 +1,12 @@
 .about {
-  background: var(--gradient-dark);
-  padding: 80px 0;
-  color: var(--text-light);
+  background: 
+    radial-gradient(circle at left center, rgba(192, 57, 43, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at right top, rgba(26, 26, 46, 0.06) 0%, transparent 40%),
+    linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%);
+  padding: 90px 0;
+  color: var(--text-dark);
+  position: relative;
+  overflow: hidden;
 }
 
 .about-container {
@@ -9,20 +14,36 @@
   grid-template-columns: 1.2fr 1fr;
   gap: 60px;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .about-heading {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--text-light);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--primary-dark);
+  position: relative;
+  display: inline-block;
+}
+
+.about-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-red);
+  border-radius: 2px;
 }
 
 .about-text p {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-gray);
   text-align: justify;
+  margin-top: 15px;
 }
 
 .about-right {
@@ -30,38 +51,65 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 30px;
+  gap: 40px;
 }
 
-.about-logo-placeholder {
+.about-logo {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  line-height: 1.2;
-  border: 3px solid rgba(255, 255, 255, 0.8);
-  padding: 15px 25px;
-  border-radius: 8px;
+  padding: 40px;
+  background: var(--bg-white);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-logo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+  max-width: 240px;
+  height: auto;
 }
 
 .about-quote {
   text-align: center;
+  position: relative;
+  max-width: 80%;
+}
+
+.about-quote::before {
+  content: '"';
+  position: absolute;
+  top: -30px;
+  left: -20px;
+  font-size: 5rem;
+  color: rgba(192, 57, 43, 0.1);
+  font-family: Georgia, serif;
+  line-height: 1;
 }
 
 .about-quote p {
   font-size: 1.3rem;
   font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5;
-  color: var(--text-light);
-  margin-bottom: 12px;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .about-quote cite {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  color: var(--primary-red);
 }
 
 @media (max-width: 768px) {
@@ -70,7 +118,15 @@
     gap: 40px;
   }
 
+  .about-heading {
+    font-size: 1.8rem;
+  }
+
   .about-text p {
     text-align: left;
+  }
+
+  .about-quote::before {
+    left: 0;
   }
 }

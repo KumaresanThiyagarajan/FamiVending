@@ -21,10 +21,8 @@ const About = () => {
           </p>
         </div>
         <div className="about-right">
-          <div className="about-logo-placeholder">
-            <span className="logo-text-main" style={{ fontSize: '2rem', color: '#fff' }}>FAMI</span>
-            <span className="logo-text-sub" style={{ fontSize: '1rem', color: '#fff' }}>VENDING</span>
-            <span className="logo-text-tag" style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.7)' }}>MODERN BOX SHOP</span>
+          <div className="about-logo">
+            <img src="/logo.png" alt="Fami Vending Logo" className="logo-img" />
           </div>
           <blockquote className="about-quote">
             <p>"Technology is best when it brings people together."</p>

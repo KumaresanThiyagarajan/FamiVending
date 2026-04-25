@@ -4,20 +4,20 @@ import './Team.css';
 const teamMembers = [
   {
     id: 1,
-    name: 'Denish Richh',
-    title: 'CEO | VENDING EXPERT',
+    name: 'Shanmadhi',
+    title: 'CEO',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
   },
   {
     id: 2,
-    name: 'Jasmine Obama',
-    title: 'OPERATIONS MANAGER',
+    name: 'Suresh',
+    title: 'CFO',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
   },
   {
     id: 3,
-    name: 'Jason Matt',
-    title: 'LEAD TECHNICIAN',
+    name: 'Narayan Karthick',
+    title: 'COO',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
   }
 ];

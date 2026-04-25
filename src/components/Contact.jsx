@@ -2,6 +2,14 @@ import React from 'react';
 import './Contact.css';
 
 const Contact = () => {
+  const handleWhatsAppRedirect = (e) => {
+    e.preventDefault();
+    const phoneNumber = "916383497994";
+    const message = "I would to get more on info on this ";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section id="contact" className="contact">
       {/* Banner */}
@@ -37,7 +45,7 @@ const Contact = () => {
       <div className="contact-form-section">
         <div className="container">
           <h3 className="form-heading">GET DIRECTION</h3>
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          <form className="contact-form" onSubmit={handleWhatsAppRedirect}>
             <div className="form-group">
               <label htmlFor="name">Your name</label>
               <input type="text" id="name" name="name" placeholder="" />

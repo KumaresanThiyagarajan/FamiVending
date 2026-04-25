@@ -2,6 +2,13 @@ import React from 'react';
 import './ReadyToWork.css';
 
 const ReadyToWork = () => {
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "916383497994";
+    const message = "I would to get more on info on this ";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section className="ready-to-work">
       <div className="rtw-overlay"></div>
@@ -13,7 +20,7 @@ const ReadyToWork = () => {
         <p className="rtw-text">
           We understand that our vending machines represent not only convenience but a reliable service for your business. We are dedicated to providing the best vending solutions tailored to your unique needs.
         </p>
-        <button className="rtw-btn">Contact Us</button>
+        <button className="rtw-btn" onClick={handleWhatsAppRedirect}>Contact Us</button>
       </div>
     </section>
   );
