@@ -5,7 +5,7 @@ const Contact = () => {
   const handleWhatsAppRedirect = (e) => {
     e.preventDefault();
     const phoneNumber = "916383497994";
-    const message = "I would to get more on info on this ";
+    const message = "Hello, I'm interested in partnering with your vending machine business. Please share the details regarding partnership opportunities";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
