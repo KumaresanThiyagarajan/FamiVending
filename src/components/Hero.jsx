@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
-const carouselImages = ['/product-1.png', '/product2.png', '/product3.png'];
+const carouselImages = [
+  { src: '/product-1.png', alt: 'Fami Vending 22 inch Smart Combo Vending Machine with interactive touchscreen advertisement display' },
+  { src: '/product2.png', alt: 'Fami Vending 10 inch Smart Combo Vending Machine for automated snack and beverage retail' },
+  { src: '/product3.png', alt: 'Fami Vending 10C Compact Combo Vending Machine for space-saving smart beverage dispensing' }
+];
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,7 +59,7 @@ const Hero = () => {
                     if (positionClass === 'next') handleNext();
                   }}
                 >
-                  <img src={img} alt={`Vending Machine ${idx + 1}`} />
+                  <img src={img.src} alt={img.alt} />
                 </div>
               );
             })}
