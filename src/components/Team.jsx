@@ -4,20 +4,20 @@ import './Team.css';
 const teamMembers = [
   {
     id: 1,
-    name: 'Shanmadhi',
-    title: 'CEO',
+    name: 'SHANMADHI DEVI SURESH',
+    title: 'Chief Executive Officer',
     image: '/ceo.png',
   },
   {
     id: 2,
-    name: 'Suresh',
-    title: 'CFO',
+    name: 'SURESH SUBRAMANIYAM',
+    title: 'Chief Financial Officer',
     image: '/cfo.png',
   },
   {
     id: 3,
-    name: 'Narayan Karthick',
-    title: 'COO',
+    name: 'NARAYAN KARTHICK RADHA',
+    title: 'Chief Operating Officer',
     image: '/coo.png',
   }
 ];
