@@ -3,10 +3,10 @@ import './Experience.css';
 
 const Experience = () => {
   const stats = [
-    { id: 1, number: '4', label: 'PROJECTS DONE' },
-    { id: 2, number: '80', label: 'EMPLOYEES' },
-    { id: 3, number: '7', label: 'AWARDS WON' },
-    { id: 4, number: '1,105', label: 'HAPPY CLIENTS' },
+    { id: 1, number: '60+', label: 'PROJECTS DONE' },
+    { id: 2, number: '4+', label: 'YEAR OF EXPERIENCE' },
+    { id: 3, number: '7+', label: 'LOCATED DISTRICTS' },
+    { id: 4, number: '1000+', label: 'HAPPY CUSTOMERS' },
   ];
 
   return (
