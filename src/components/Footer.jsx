@@ -71,20 +71,7 @@ const Footer = () => {
               </svg>
             </a>
 
-            {/* 3. LinkedIn */}
-            <a
-              href="https://www.linkedin.com/in/shanmadhi-devi-6b0465121?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon linkedin"
-              aria-label="LinkedIn"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-            </a>
-
-            {/* 4. WhatsApp */}
+            {/* 3. WhatsApp */}
             <a
               href="https://wa.me/916383497994"
               target="_blank"
@@ -97,7 +84,7 @@ const Footer = () => {
               </svg>
             </a>
 
-            {/* 5. YouTube */}
+            {/* 4. YouTube */}
             <a
               href="https://youtube.com/@famivending?si=PMHPjW1ju5pJTjGY"
               target="_blank"
@@ -110,16 +97,16 @@ const Footer = () => {
               </svg>
             </a>
 
-            {/* 6. Other Link */}
+            {/* 5. Threads */}
             <a
-              href="https://www.threads.com/@fami_vending/"
+              href="https://www.threads.net/@fami_vending"
               target="_blank"
               rel="noopener noreferrer"
-              className="social-icon link"
-              aria-label="Other Link"
+              className="social-icon threads"
+              aria-label="Threads"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
+                <path d="M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z" />
               </svg>
             </a>
           </div>

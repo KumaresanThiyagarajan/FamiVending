@@ -23,7 +23,7 @@ const teamMembers = [
       instagram: 'https://www.instagram.com/fashion_miissile?igsi=ZWdsMHFmdTAybGdv',
       facebook: 'https://www.facebook.com/share/1b8zikY6tz/',
       linkedin: 'https://famivesture.com/',
-      whatsapp: 'https://wa.me+918428250737',
+      whatsapp: 'https://wa.me/918428250737',
     }
   },
   {
@@ -35,7 +35,7 @@ const teamMembers = [
       instagram: 'https://www.instagram.com/__karthick_07__?igsi=MWZ3YzN2d2Y0dWtmZg==',
       facebook: 'https://famivesture.com/',
       linkedin: 'https://famivesture.com/',
-      whatsapp: 'https://wa.me+919123591587',
+      whatsapp: 'https://wa.me/919123591587',
     }
   }
 ];
