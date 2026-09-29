@@ -17,10 +17,11 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="about">About Company</a></li>
-            <li><a href="#">Featured Products</a></li>
-            <li><a href="#">Our Blogs</a></li>
-            <li><a href="#">Contact Info</a></li>
+            <li><a href="#about">About Company</a></li>
+            <li><a href="#products">Featured Products</a></li>
+            <li><a href="#blog">Our Blogs</a></li>
+            <li><a href="#contact">Contact Info</a></li>
+            <li><a href="#brand-handling">Brand Handling</a></li>
           </ul>
         </div>
 

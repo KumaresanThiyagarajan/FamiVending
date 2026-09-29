@@ -741,6 +741,21 @@ const categoryList = [
 const BrandHandling = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
+  const handleCategorySelect = (key) => {
+    setActiveCategory(key);
+    setTimeout(() => {
+      const targetElement = document.getElementById(`cat-block-${key}`) || document.querySelector('.bh-brands-section');
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
+
+  const handleBrandClick = (brand) => {
+    const searchQuery = encodeURIComponent(`${brand.name} ${brand.category}`);
+    window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank', 'noopener,noreferrer');
+  };
+
   const filteredBrands = activeCategory === 'all'
     ? brandData
     : brandData.filter(b => b.categoryKey === activeCategory);
@@ -766,7 +781,7 @@ const BrandHandling = () => {
               <div 
                 key={cat.key} 
                 className={`bh-cat-card ${activeCategory === cat.key ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat.key)}
+                onClick={() => handleCategorySelect(cat.key)}
               >
                 <div className="bh-circle-wrapper" style={{ borderColor: cat.color }}>
                   {cat.circleImg}
@@ -776,7 +791,7 @@ const BrandHandling = () => {
                   style={{ backgroundColor: cat.color }}
                   onClick={(e) => {
                     e.stopPropagation();
-                    setActiveCategory(cat.key);
+                    handleCategorySelect(cat.key);
                   }}
                 >
                   {cat.label}
@@ -797,7 +812,7 @@ const BrandHandling = () => {
                 key={cat.key}
                 className={`bh-tab-btn ${activeCategory === cat.key ? 'active' : ''}`}
                 style={activeCategory === cat.key ? { backgroundColor: cat.color, borderColor: cat.color } : {}}
-                onClick={() => setActiveCategory(cat.key)}
+                onClick={() => handleCategorySelect(cat.key)}
               >
                 {cat.label} <span className="bh-tab-badge">{cat.count}</span>
               </button>
@@ -820,7 +835,7 @@ const BrandHandling = () => {
 
                     <div className="bh-grid">
                       {catBrands.map((brand) => (
-                        <div key={brand.id} className="bh-brand-card">
+                        <div key={brand.id} className="bh-brand-card" onClick={() => handleBrandClick(brand)} style={{ cursor: 'pointer' }}>
                           <div className="bh-logo-box">
                             {brand.logoSvg}
                           </div>
@@ -850,7 +865,7 @@ const BrandHandling = () => {
 
               <div className="bh-grid">
                 {filteredBrands.map((brand) => (
-                  <div key={brand.id} className="bh-brand-card">
+                  <div key={brand.id} className="bh-brand-card" onClick={() => handleBrandClick(brand)} style={{ cursor: 'pointer' }}>
                     <div className="bh-logo-box">
                       {brand.logoSvg}
                     </div>
