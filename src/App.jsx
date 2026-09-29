@@ -8,6 +8,8 @@ import Products from './components/Products';
 import ReadyToWork from './components/ReadyToWork';
 import Experience from './components/Experience';
 import Blog from './components/Blog';
+import Contact from './components/Contact';
+import BrandHandling from './components/BrandHandling';
 import Footer from './components/Footer';
 import Loading from './components/Loading';
 
@@ -29,6 +31,8 @@ function App() {
           <Products />
           <ReadyToWork />
           <Blog />
+          <Contact />
+          <BrandHandling />
           <Footer />
         </>
       )}

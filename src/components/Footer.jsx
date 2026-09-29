@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="#">About Company</a></li>
+            <li><a href="about">About Company</a></li>
             <li><a href="#">Featured Products</a></li>
             <li><a href="#">Our Blogs</a></li>
             <li><a href="#">Contact Info</a></li>
