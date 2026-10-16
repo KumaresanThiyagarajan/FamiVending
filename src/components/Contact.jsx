@@ -2,14 +2,6 @@ import React from 'react';
 import './Contact.css';
 
 const Contact = () => {
-  const handleWhatsAppRedirect = (e) => {
-    e.preventDefault();
-    const phoneNumber = "916383497994";
-    const message = "Hello, I'm interested in partnering with your vending machine business. Please share the details regarding partnership opportunities";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
   return (
     <section id="contact" className="contact">
       {/* Banner */}
@@ -38,32 +30,6 @@ const Contact = () => {
               <span className="info-value">Mon - Sat: 09:00AM - 08:00PM</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Contact Form */}
-      <div className="contact-form-section">
-        <div className="container">
-          <h3 className="form-heading">GET DIRECTION</h3>
-          <form className="contact-form" onSubmit={handleWhatsAppRedirect}>
-            <div className="form-group">
-              <label htmlFor="name">Your name</label>
-              <input type="text" id="name" name="name" placeholder="" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Your email</label>
-              <input type="email" id="email" name="email" placeholder="" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="subject">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Your message (optional)</label>
-              <textarea id="message" name="message" rows="5" placeholder=""></textarea>
-            </div>
-            <button type="submit" className="btn-submit">Submit</button>
-          </form>
         </div>
       </div>
     </section>

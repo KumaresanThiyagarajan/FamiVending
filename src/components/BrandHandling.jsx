@@ -168,601 +168,782 @@ const BeveragesCategoryImg = () => (
   </svg>
 );
 
-// Array of brand logos SVG definitions
-const brandData = [
-  // SNACKS (7 brands)
-  {
-    id: 'lays',
-    name: "Lay's",
-    category: 'Snacks',
-    categoryKey: 'snacks',
-    desc: 'Classic Potato Chips',
-    color: '#e52328',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#facc15" />
-        <path d="M 8 50 Q 50 32 92 50 Q 50 68 8 50 Z" fill="#dc2626" />
-        <text x="50" y="55" fill="#ffffff" fontSize="20" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="sans-serif">Lay's</text>
+// Minimalist delicate ray marks around the active category circle
+const CircleRayMarks = ({ color }) => (
+  <>
+    <div className="bh-circle-rays bh-circle-rays-left">
+      <svg viewBox="0 0 16 32" width="16" height="32">
+        <line x1="14" y1="6" x2="2" y2="10" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
+        <line x1="15" y1="16" x2="1" y2="16" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
+        <line x1="14" y1="26" x2="2" y2="22" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
       </svg>
-    )
-  },
-  {
-    id: 'too-yumm',
-    name: 'Too Yumm',
-    category: 'Snacks',
-    categoryKey: 'snacks',
-    desc: 'Guilt-Free Healthy Snacks',
-    color: '#e52328',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="5" y="15" width="90" height="70" rx="12" fill="#0f172a" />
-        <path d="M 12 35 L 88 35 L 80 75 L 20 75 Z" fill="#dc2626" />
-        <text x="50" y="50" fill="#facc15" fontSize="13" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">TOO</text>
-        <text x="50" y="67" fill="#ffffff" fontSize="15" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">YUMM!</text>
+    </div>
+    <div className="bh-circle-rays bh-circle-rays-right">
+      <svg viewBox="0 0 16 32" width="16" height="32">
+        <line x1="2" y1="6" x2="14" y2="10" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
+        <line x1="1" y1="16" x2="15" y2="16" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
+        <line x1="2" y1="26" x2="14" y2="22" stroke={color} strokeWidth="2.2" strokeLinecap="round" />
       </svg>
-    )
-  },
-  {
-    id: 'bingo',
-    name: 'Bingo',
-    category: 'Snacks',
-    categoryKey: 'snacks',
-    desc: 'Tedhe Medhe & Potato Chips',
-    color: '#e52328',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <ellipse cx="50" cy="50" rx="44" ry="34" fill="#dc2626" />
-        <ellipse cx="50" cy="50" rx="38" ry="28" fill="#fbbf24" />
-        <polygon points="50,22 55,35 68,35 57,44 61,57 50,48 39,57 43,44 32,35 45,35" fill="#dc2626" />
-        <text x="50" y="68" fill="#1e3a8a" fontSize="16" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="sans-serif">Bingo!</text>
-      </svg>
-    )
-  },
-  {
-    id: 'theater-project',
-    name: 'The Theater Project',
-    category: 'Snacks',
-    categoryKey: 'snacks',
-    desc: 'Gourmet Popcorn (4700BC)',
-    color: '#e52328',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="10" width="84" height="80" rx="10" fill="#0f172a" />
-        <path d="M 50 22 C 35 22 35 38 50 42 C 65 38 65 22 50 22 Z" fill="#d97706" />
-        <circle cx="50" cy="30" r="6" fill="#fef08a" />
-        <text x="50" y="60" fill="#d97706" fontSize="9" fontWeight="bold" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">THE THEATER</text>
-        <text x="50" y="73" fill="#ffffff" fontSize="11" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">PROJECT</text>
-      </svg>
-    )
-  },
-  {
-    id: 'kettle-studio',
-    name: 'Kettle Studio',
-    category: 'Snacks',
-    categoryKey: 'snacks',
-    desc: 'Handcrafted Potato Chips',
-    color: '#e52328',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#78350f" />
-        <circle cx="50" cy="50" r="37" fill="none" stroke="#fbbf24" strokeWidth="2" strokeDasharray="4 2" />
-        <text x="50" y="44" fill="#fef08a" fontSize="12" fontWeight="bold" letterSpacing="1" textAnchor="middle" fontFamily="serif">KETTLE</text>
-        <text x="50" y="62" fill="#ffffff" fontSize="14" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">STUDIO</text>
-      </svg>
-    )
-  },
-  {
-    id: 'act-2',
-    name: 'Act 2',
-    category: 'Snacks',
-    categoryKey: 'snacks',
-    desc: 'Ready & Instant Popcorn',
-    color: '#e52328',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="5" y="15" width="90" height="70" rx="10" fill="#facc15" />
-        <polygon points="15,25 85,25 75,75 25,75" fill="#dc2626" />
-        <text x="50" y="55" fill="#ffffff" fontSize="22" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">ACT II</text>
-        <text x="50" y="68" fill="#fef08a" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">POPCORN</text>
-      </svg>
-    )
-  },
-  {
-    id: 'smachoz',
-    name: 'Smachoz',
-    category: 'Snacks',
-    categoryKey: 'snacks',
-    desc: 'Tortilla & Nacho Chips',
-    color: '#e52328',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="12" width="84" height="76" rx="12" fill="#ea580c" />
-        <polygon points="50,22 75,65 25,65" fill="#facc15" stroke="#c2410c" strokeWidth="2" />
-        <text x="50" y="55" fill="#1e293b" fontSize="10" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">SMACH</text>
-        <text x="50" y="78" fill="#ffffff" fontSize="14" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">SMACHOS</text>
-      </svg>
-    )
-  },
+    </div>
+  </>
+);
 
-  // CAKE (7 brands)
-  {
-    id: 'winkies',
-    name: 'Winkies',
-    category: 'Cake',
-    categoryKey: 'cake',
-    desc: 'Delicious Centre Filled Cakes',
-    color: '#f59e0b',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="6" y="15" width="88" height="70" rx="16" fill="#5b21b6" />
-        <circle cx="50" cy="38" r="16" fill="#f472b6" />
-        <text x="50" y="68" fill="#ffffff" fontSize="17" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Winkies</text>
-      </svg>
-    )
-  },
-  {
-    id: 'wonder-cake',
-    name: 'Wonder Cake',
-    category: 'Cake',
-    categoryKey: 'cake',
-    desc: 'Soft & Fresh Packaged Cakes',
-    color: '#f59e0b',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#d97706" />
-        <path d="M 30 65 L 70 65 L 65 45 L 35 45 Z" fill="#fffbe0" />
-        <circle cx="50" cy="40" r="6" fill="#dc2626" />
-        <text x="50" y="78" fill="#ffffff" fontSize="10" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">WONDER CAKE</text>
-      </svg>
-    )
-  },
-  {
-    id: 'elite',
-    name: 'Elite',
-    category: 'Cake',
-    categoryKey: 'cake',
-    desc: 'Rich Plum & Slice Cakes',
-    color: '#f59e0b',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="15" width="84" height="70" rx="10" fill="#881337" />
-        <path d="M 35 32 L 50 20 L 65 32 L 58 45 L 42 45 Z" fill="#fbbf24" />
-        <text x="50" y="65" fill="#ffffff" fontSize="20" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="serif">Elite</text>
-      </svg>
-    )
-  },
-  {
-    id: 'aditi-marvel',
-    name: 'Aditi Marvel',
-    category: 'Cake',
-    categoryKey: 'cake',
-    desc: 'Fresh Oven Baked Cakes',
-    color: '#f59e0b',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="6" y="15" width="88" height="70" rx="10" fill="#b91c1c" />
-        <text x="50" y="44" fill="#fef08a" fontSize="13" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">ADITI</text>
-        <text x="50" y="66" fill="#ffffff" fontSize="16" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">MARVEL</text>
-      </svg>
-    )
-  },
-  {
-    id: 'otter',
-    name: 'Otter',
-    category: 'Cake',
-    categoryKey: 'cake',
-    desc: 'Gourmet Snack Cakes & Rolls',
-    color: '#f59e0b',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#0d9488" />
-        <circle cx="50" cy="40" r="14" fill="#ccfbf1" />
-        <text x="50" y="72" fill="#ffffff" fontSize="16" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Otter</text>
-      </svg>
-    )
-  },
-  {
-    id: 'yumm-treat',
-    name: 'Yumm Treat',
-    category: 'Cake',
-    categoryKey: 'cake',
-    desc: 'Tasty Muffins & Cupcakes',
-    color: '#f59e0b',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="15" width="84" height="70" rx="14" fill="#c026d3" />
-        <path d="M 35 45 Q 50 25 65 45 Z" fill="#fef08a" />
-        <text x="50" y="65" fill="#ffffff" fontSize="13" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Yumm Treat</text>
-      </svg>
-    )
-  },
-  {
-    id: 'food-flex',
-    name: 'Food Flex',
-    category: 'Cake',
-    categoryKey: 'cake',
-    desc: 'Cake Bites & Energy Bars',
-    color: '#f59e0b',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="15" width="84" height="70" rx="10" fill="#059669" />
-        <polygon points="50,22 62,45 38,45" fill="#fef08a" />
-        <text x="50" y="65" fill="#ffffff" fontSize="13" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">FOOD FLEX</text>
-      </svg>
-    )
-  },
+// 10 Clean, Minimalist, Authentically Styled Brands per Category (50 Brands)
+const categoryBrands = {
+  // 1. CHOCOLATE (Exact 10 brands from design mockup with refined typography & padding)
+  chocolate: [
+    {
+      id: 'cadbury',
+      name: 'Cadbury',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#1d0047" />
+          <text x="80" y="38" fill="#ffffff" fontSize="27" fontFamily="'Brush Script MT', 'Great Vibes', cursive" fontStyle="italic" textAnchor="middle">
+            Cadbury
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'dairy-milk',
+      name: 'Cadbury Dairy Milk',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#240d58" />
+          <text x="80" y="21" fill="#ffffff" fontSize="12" fontFamily="'Brush Script MT', cursive" fontStyle="italic" textAnchor="middle" opacity="0.92">
+            Cadbury
+          </text>
+          <text x="80" y="42" fill="#fed833" fontSize="17" fontWeight="800" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.2">
+            Dairy Milk
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'kitkat',
+      name: 'KitKat',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#ffffff" stroke="#f1f5f9" strokeWidth="1" />
+          <ellipse cx="80" cy="28" rx="56" ry="21" fill="#dc2626" />
+          <ellipse cx="80" cy="28" rx="52" ry="17.5" fill="none" stroke="#ffffff" strokeWidth="1.2" />
+          <text x="80" y="20" fill="#ffffff" fontSize="8" fontFamily="'Brush Script MT', cursive" fontStyle="italic" textAnchor="middle">
+            Nestlé
+          </text>
+          <text x="80" y="36.5" fill="#ffffff" fontSize="20" fontWeight="900" fontStyle="italic" fontFamily="sans-serif" textAnchor="middle" letterSpacing="-0.5">
+            KitKat
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'snickers',
+      name: 'Snickers',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#22120b" />
+          <rect x="18" y="10" width="124" height="36" rx="5" fill="#ffffff" stroke="#00479b" strokeWidth="3" />
+          <text x="80" y="36" fill="#00479b" fontSize="19" fontWeight="900" fontStyle="italic" fontFamily="'Arial Black', sans-serif" textAnchor="middle" letterSpacing="1">
+            SNICKERS
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'mms',
+      name: "M&M's",
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#361b0f" />
+          <text x="81" y="40" fill="#180b05" fontSize="30" fontWeight="900" fontStyle="italic" fontFamily="sans-serif" textAnchor="middle">
+            m&amp;m's
+          </text>
+          <text x="79" y="38" fill="#ffffff" fontSize="30" fontWeight="900" fontStyle="italic" fontFamily="sans-serif" textAnchor="middle">
+            m&amp;m's
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'hersheys',
+      name: "Hershey's",
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#261412" />
+          <text x="80" y="36" fill="#f1f5f9" fontSize="17" fontWeight="900" fontFamily="'Arial Black', sans-serif" letterSpacing="2.5" textAnchor="middle">
+            HERSHEY'S
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'ferrero-rocher',
+      name: 'Ferrero Rocher',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#ffffff" stroke="#f1f5f9" strokeWidth="1" />
+          <ellipse cx="80" cy="28" rx="66" ry="20" fill="none" stroke="#d4af37" strokeWidth="1.2" />
+          <polygon points="80,12 83,17 77,17" fill="#d4af37" />
+          <circle cx="80" cy="15" r="1.5" fill="#d4af37" />
+          <text x="80" y="27" fill="#42250d" fontSize="9" fontWeight="700" letterSpacing="1.8" fontFamily="serif" textAnchor="middle">
+            FERRERO
+          </text>
+          <text x="80" y="41" fill="#42250d" fontSize="12" fontWeight="800" letterSpacing="2" fontFamily="serif" textAnchor="middle">
+            ROCHER
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'lindt',
+      name: 'Lindt',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#161311" />
+          <g transform="translate(26, 16) scale(0.68)">
+            <path d="M 12 3 C 15 1, 18 4, 17 8 C 15 12, 19 16, 17 22 L 9 22 C 9 17, 3 15, 5 10 C 7 7, 7 4, 10 5 Z" fill="#d4af37" />
+            <circle cx="16" cy="6" r="1.5" fill="#d4af37" />
+          </g>
+          <text x="96" y="38" fill="#d4af37" fontSize="27" fontFamily="'Brush Script MT', 'Great Vibes', cursive" fontStyle="italic" textAnchor="middle">
+            Lindt
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'bournville',
+      name: 'Cadbury Bournville',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#141416" />
+          <text x="80" y="21" fill="#ffffff" fontSize="11" fontFamily="'Brush Script MT', cursive" fontStyle="italic" textAnchor="middle" opacity="0.9">
+            Cadbury
+          </text>
+          <text x="80" y="41" fill="#e5b869" fontSize="15" fontWeight="700" fontFamily="serif" letterSpacing="1.8" textAnchor="middle">
+            Bournville
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'galaxy',
+      name: 'Galaxy',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#ffffff" stroke="#f1f5f9" strokeWidth="1" />
+          <text x="80" y="39" fill="#4a2315" fontSize="29" fontFamily="'Brush Script MT', cursive" fontStyle="italic" fontWeight="700" textAnchor="middle">
+            Galaxy<tspan fontSize="13" dy="-12">®</tspan>
+          </text>
+        </svg>
+      )
+    }
+  ],
 
-  // CHOCOLATE (7 brands)
-  {
-    id: 'nestle',
-    name: 'Nestle',
-    category: 'Chocolate',
-    categoryKey: 'chocolate',
-    desc: 'KitKat, Munch & Milkybar',
-    color: '#7c3aed',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="6" y="15" width="88" height="70" rx="10" fill="#0284c7" />
-        <path d="M 30 35 Q 50 25 70 35 Q 70 50 30 50 Z" fill="#ffffff" />
-        <text x="50" y="70" fill="#ffffff" fontSize="17" fontWeight="900" textAnchor="middle" fontFamily="serif">Nestlé</text>
-      </svg>
-    )
-  },
-  {
-    id: 'wholy',
-    name: 'Wholy',
-    category: 'Chocolate',
-    categoryKey: 'chocolate',
-    desc: 'Wholesome Dark Chocolates',
-    color: '#7c3aed',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#3730a3" />
-        <ellipse cx="50" cy="40" rx="14" ry="20" fill="#d97706" transform="rotate(30 50 40)" />
-        <text x="50" y="74" fill="#ffffff" fontSize="15" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Wholy</text>
-      </svg>
-    )
-  },
-  {
-    id: 'naturo',
-    name: 'Naturo',
-    category: 'Chocolate',
-    categoryKey: 'chocolate',
-    desc: 'Real Fruit & Choco Bars',
-    color: '#7c3aed',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="15" width="84" height="70" rx="12" fill="#16a34a" />
-        <circle cx="50" cy="38" r="14" fill="#ea580c" />
-        <text x="50" y="68" fill="#ffffff" fontSize="15" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">NATURO</text>
-      </svg>
-    )
-  },
-  {
-    id: 'nomi',
-    name: 'Nomi',
-    category: 'Chocolate',
-    categoryKey: 'chocolate',
-    desc: 'Choco Wafers & Crispies',
-    color: '#7c3aed',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="15" width="84" height="70" rx="14" fill="#451a03" />
-        <rect x="25" y="28" width="50" height="20" rx="4" fill="#78350f" stroke="#fbbf24" strokeWidth="2" />
-        <text x="50" y="68" fill="#fbbf24" fontSize="18" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Nomi</text>
-      </svg>
-    )
-  },
-  {
-    id: 'mani-mark',
-    name: 'Mani Mark',
-    category: 'Chocolate',
-    categoryKey: 'chocolate',
-    desc: 'Choco Chikki & Sweets',
-    color: '#7c3aed',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="6" y="15" width="88" height="70" rx="10" fill="#b91c1c" />
-        <circle cx="50" cy="36" r="14" fill="#fbbf24" />
-        <text x="50" y="62" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">MANI MARK</text>
-      </svg>
-    )
-  },
-  {
-    id: 'gone-mad',
-    name: 'Gone Mad',
-    category: 'Chocolate',
-    categoryKey: 'chocolate',
-    desc: 'Choco Stick Wafers',
-    color: '#7c3aed',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="6" y="15" width="88" height="70" rx="12" fill="#7e22ce" />
-        <rect x="30" y="25" width="40" height="12" rx="4" fill="#facc15" transform="rotate(-10 50 30)" />
-        <text x="50" y="58" fill="#fef08a" fontSize="13" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">GONE MAD</text>
-      </svg>
-    )
-  },
-  {
-    id: 'yummy-valley',
-    name: 'Yummy Valley',
-    category: 'Chocolate',
-    categoryKey: 'chocolate',
-    desc: 'Choco Nut & Fruit Delights',
-    color: '#7c3aed',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#15803d" />
-        <path d="M 25 50 Q 50 30 75 50 Q 50 70 25 50 Z" fill="#fbbf24" />
-        <text x="50" y="74" fill="#ffffff" fontSize="11" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Yummy Valley</text>
-      </svg>
-    )
-  },
+  // 2. SNACKS (10 brands)
+  snacks: [
+    {
+      id: 'lays',
+      name: "Lay's",
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#ffffff" stroke="#f1f5f9" strokeWidth="1" />
+          <circle cx="80" cy="28" r="21" fill="#facc15" />
+          <path d="M 32 28 Q 80 16 128 28 Q 80 40 32 28 Z" fill="#dc2626" />
+          <text x="80" y="33" fill="#ffffff" fontSize="17" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="sans-serif">
+            Lay's
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'doritos',
+      name: 'Doritos',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#0f172a" />
+          <polygon points="45,46 115,46 80,12" fill="#ea580c" stroke="#facc15" strokeWidth="1.5" />
+          <polygon points="54,43 106,43 80,19" fill="#dc2626" />
+          <text x="80" y="38" fill="#ffffff" fontSize="19" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            Doritos
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'pringles',
+      name: 'Pringles',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#dc2626" />
+          <circle cx="48" cy="28" r="13" fill="#ffffff" />
+          <path d="M 39 29 Q 48 35 57 29 Q 53 38 43 38 Z" fill="#78350f" />
+          <circle cx="44" cy="24" r="2.2" fill="#1e293b" />
+          <circle cx="52" cy="24" r="2.2" fill="#1e293b" />
+          <text x="104" y="35" fill="#ffffff" fontSize="16" fontWeight="900" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            Pringles
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'kurkure',
+      name: 'Kurkure',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#ea580c" />
+          <text x="80" y="38" fill="#facc15" fontSize="24" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="'Arial Black', cursive">
+            Kurkure
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'bingo',
+      name: 'Bingo!',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#fde047" />
+          <ellipse cx="80" cy="28" rx="55" ry="20" fill="#dc2626" />
+          <text x="80" y="35" fill="#ffffff" fontSize="19" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="sans-serif">
+            Bingo!
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'too-yumm',
+      name: 'Too Yumm!',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#0f172a" />
+          <rect x="28" y="9" width="104" height="38" rx="6" fill="#dc2626" />
+          <text x="80" y="24" fill="#facc15" fontSize="12" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            TOO
+          </text>
+          <text x="80" y="40" fill="#ffffff" fontSize="15" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            YUMM!
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'act-2',
+      name: 'ACT II',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#facc15" />
+          <polygon points="28,12 132,12 118,44 42,44" fill="#dc2626" />
+          <text x="80" y="31" fill="#ffffff" fontSize="19" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            ACT II
+          </text>
+          <text x="80" y="41" fill="#fef08a" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
+            POPCORN
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'cornitos',
+      name: 'Cornitos',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#15803d" />
+          <polygon points="34,37 49,17 64,37" fill="#facc15" />
+          <text x="104" y="35" fill="#ffffff" fontSize="19" fontWeight="900" letterSpacing="0.8" textAnchor="middle" fontFamily="sans-serif">
+            Cornitos
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'cheetos',
+      name: 'Cheetos',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#f97316" />
+          <text x="80" y="38" fill="#ffffff" fontSize="23" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            Cheetos
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'kettle-studio',
+      name: 'Kettle Studio',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#29150b" />
+          <circle cx="80" cy="28" r="22" fill="none" stroke="#d4af37" strokeWidth="1.2" strokeDasharray="3 2" />
+          <text x="80" y="24" fill="#d4af37" fontSize="10" fontWeight="bold" letterSpacing="1.5" textAnchor="middle" fontFamily="serif">
+            KETTLE
+          </text>
+          <text x="80" y="39" fill="#ffffff" fontSize="13" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">
+            STUDIO
+          </text>
+        </svg>
+      )
+    }
+  ],
 
-  // BISCUITS (7 brands)
-  {
-    id: 'britannia',
-    name: 'Britannia',
-    category: 'Biscuits',
-    categoryKey: 'biscuits',
-    desc: 'Good Day, Bourbon & Marie',
-    color: '#10b981',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <ellipse cx="50" cy="50" rx="44" ry="32" fill="#dc2626" />
-        <ellipse cx="50" cy="50" rx="38" ry="26" fill="#ffffff" />
-        <text x="50" y="55" fill="#dc2626" fontSize="12" fontWeight="900" letterSpacing="0.5" textAnchor="middle" fontFamily="sans-serif">BRITANNIA</text>
-      </svg>
-    )
-  },
-  {
-    id: 'parle',
-    name: 'Parle',
-    category: 'Biscuits',
-    categoryKey: 'biscuits',
-    desc: 'Parle-G, Monaco & Hide & Seek',
-    color: '#10b981',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="18" width="84" height="64" rx="12" fill="#ffffff" stroke="#dc2626" strokeWidth="4" />
-        <path d="M 25 65 Q 50 75 75 65" fill="none" stroke="#eab308" strokeWidth="4" />
-        <text x="50" y="52" fill="#dc2626" fontSize="19" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Parle</text>
-      </svg>
-    )
-  },
-  {
-    id: 'unibic',
-    name: 'Unibic',
-    category: 'Biscuits',
-    categoryKey: 'biscuits',
-    desc: 'Premium Cookies & Butter Biscuits',
-    color: '#10b981',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="6" y="16" width="88" height="68" rx="10" fill="#1e3a8a" />
-        <text x="50" y="55" fill="#d97706" fontSize="17" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">UNIBIC</text>
-      </svg>
-    )
-  },
-  {
-    id: 'dukes',
-    name: 'Dukes',
-    category: 'Biscuits',
-    categoryKey: 'biscuits',
-    desc: 'Wafers & Cream Biscuits',
-    color: '#10b981',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="6" y="16" width="88" height="68" rx="10" fill="#b91c1c" />
-        <text x="50" y="55" fill="#ffffff" fontSize="19" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Dukes</text>
-      </svg>
-    )
-  },
-  {
-    id: 'town-bus',
-    name: 'Town Bus',
-    category: 'Biscuits',
-    categoryKey: 'biscuits',
-    desc: 'Crispy Savory Crackers',
-    color: '#10b981',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="16" width="84" height="68" rx="10" fill="#eab308" />
-        <rect x="18" y="26" width="64" height="24" rx="4" fill="#dc2626" />
-        <text x="50" y="42" fill="#ffffff" fontSize="12" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">TOWN BUS</text>
-        <text x="50" y="68" fill="#78350f" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">SNACKS</text>
-      </svg>
-    )
-  },
-  {
-    id: 'seenis',
-    name: 'Seenis',
-    category: 'Biscuits',
-    categoryKey: 'biscuits',
-    desc: 'Traditional Bakery Biscuits',
-    color: '#10b981',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="16" width="84" height="68" rx="12" fill="#991b1b" />
-        <circle cx="50" cy="38" r="12" fill="#fbbf24" />
-        <text x="50" y="68" fill="#ffffff" fontSize="16" fontWeight="900" textAnchor="middle" fontFamily="serif">Seeni's</text>
-      </svg>
-    )
-  },
-  {
-    id: 'farmely',
-    name: 'Farmely',
-    category: 'Biscuits',
-    categoryKey: 'biscuits',
-    desc: 'Healthy Millet & Grain Cookies',
-    color: '#10b981',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#166534" />
-        <path d="M 50 25 C 40 40 40 50 50 65 C 60 50 60 40 50 25 Z" fill="#bbf7d0" />
-        <text x="50" y="76" fill="#ffffff" fontSize="13" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Farmely</text>
-      </svg>
-    )
-  },
+  // 3. CAKE (10 brands)
+  cake: [
+    {
+      id: 'winkies',
+      name: 'Winkies',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#5b21b6" />
+          <circle cx="42" cy="28" r="13" fill="#ec4899" />
+          <text x="100" y="36" fill="#ffffff" fontSize="20" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            Winkies
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'wonder-cake',
+      name: 'Wonder Cake',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#d97706" />
+          <circle cx="36" cy="28" r="13" fill="#fef3c7" />
+          <circle cx="36" cy="23" r="3.5" fill="#dc2626" />
+          <text x="98" y="35" fill="#ffffff" fontSize="15" fontWeight="900" letterSpacing="0.5" textAnchor="middle" fontFamily="sans-serif">
+            WONDER CAKE
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'elite',
+      name: 'Elite',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#881337" />
+          <path d="M 34 33 L 41 22 L 48 33 Z" fill="#fbbf24" />
+          <circle cx="41" cy="20" r="2.5" fill="#fbbf24" />
+          <text x="96" y="37" fill="#ffffff" fontSize="22" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="serif">
+            Elite
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'britannia-cake',
+      name: 'Britannia Cake',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#ffffff" stroke="#f1f5f9" strokeWidth="1" />
+          <ellipse cx="80" cy="21" rx="40" ry="13" fill="#dc2626" />
+          <text x="80" y="25" fill="#ffffff" fontSize="10" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            BRITANNIA
+          </text>
+          <text x="80" y="44" fill="#d97706" fontSize="14" fontWeight="bold" textAnchor="middle" fontFamily="serif">
+            Fruit Cake
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'monginis',
+      name: 'Monginis',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#1e3a8a" />
+          <circle cx="38" cy="28" r="11" fill="#f43f5e" />
+          <text x="98" y="36" fill="#ffffff" fontSize="20" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            Monginis
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'aditi-marvel',
+      name: 'Aditi Marvel',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#b91c1c" />
+          <text x="80" y="24" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
+            ADITI
+          </text>
+          <text x="80" y="43" fill="#ffffff" fontSize="16" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">
+            MARVEL
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'otter',
+      name: 'Otter',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#0f766e" />
+          <circle cx="40" cy="28" r="13" fill="#ccfbf1" />
+          <text x="100" y="37" fill="#ffffff" fontSize="21" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            Otter
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'yumm-treat',
+      name: 'Yumm Treat',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#c026d3" />
+          <circle cx="38" cy="28" r="12" fill="#fef08a" />
+          <text x="98" y="36" fill="#ffffff" fontSize="17" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            Yumm Treat
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'pillsbury',
+      name: 'Pillsbury',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#2563eb" />
+          <ellipse cx="80" cy="28" rx="56" ry="19" fill="#ffffff" />
+          <text x="80" y="34" fill="#1d4ed8" fontSize="20" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="'Brush Script MT', cursive">
+            Pillsbury
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'food-flex',
+      name: 'Food Flex',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#059669" />
+          <polygon points="40,17 47,37 33,37" fill="#fef08a" />
+          <text x="98" y="35" fill="#ffffff" fontSize="16" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            FOOD FLEX
+          </text>
+        </svg>
+      )
+    }
+  ],
 
-  // BEVERAGES (8 brands)
-  {
-    id: 'pepsi-co',
-    name: 'Pepsi Co',
-    category: 'Beverages',
-    categoryKey: 'beverages',
-    desc: 'Pepsi, 7Up, Mirinda & Dew',
-    color: '#0284c7',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#1d4ed8" />
-        <path d="M 12 40 Q 50 25 88 40 L 88 12 C 70 8 30 8 12 12 Z" fill="#e11d48" />
-        <path d="M 12 40 Q 50 65 88 40 Q 50 85 12 40 Z" fill="#ffffff" />
-        <text x="50" y="78" fill="#ffffff" fontSize="12" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">PEPSI</text>
-      </svg>
-    )
-  },
-  {
-    id: 'hindustan-beverages',
-    name: 'Hindustan Beverages',
-    category: 'Beverages',
-    categoryKey: 'beverages',
-    desc: 'Coca-Cola, Thums Up & Sprite',
-    color: '#0284c7',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="6" y="16" width="88" height="68" rx="12" fill="#dc2626" />
-        <text x="50" y="44" fill="#ffffff" fontSize="14" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">HCCB</text>
-        <text x="50" y="65" fill="#fef08a" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">HINDUSTAN BEVERAGES</text>
-      </svg>
-    )
-  },
-  {
-    id: 'itc',
-    name: 'ITC',
-    category: 'Beverages',
-    categoryKey: 'beverages',
-    desc: 'B-Natural Juices & Coffee',
-    color: '#0284c7',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <polygon points="50,15 90,82 10,82" fill="#1e293b" stroke="#d97706" strokeWidth="2" />
-        <text x="50" y="62" fill="#d97706" fontSize="24" fontWeight="900" letterSpacing="2" textAnchor="middle" fontFamily="serif">ITC</text>
-      </svg>
-    )
-  },
-  {
-    id: 'parle-agro',
-    name: 'Parle Agro',
-    category: 'Beverages',
-    categoryKey: 'beverages',
-    desc: 'Frooti, Appy Fizz & Bailley',
-    color: '#0284c7',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="16" width="84" height="68" rx="14" fill="#15803d" />
-        <circle cx="50" cy="38" r="14" fill="#facc15" />
-        <text x="50" y="66" fill="#ffffff" fontSize="11" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">PARLE AGRO</text>
-      </svg>
-    )
-  },
-  {
-    id: 'cavins',
-    name: 'Cavins',
-    category: 'Beverages',
-    categoryKey: 'beverages',
-    desc: 'Rich Flavored Milk & Milkshakes',
-    color: '#0284c7',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="6" y="16" width="88" height="68" rx="12" fill="#1d4ed8" />
-        <path d="M 20 35 C 40 25 60 45 80 35" fill="none" stroke="#ffffff" strokeWidth="3" />
-        <text x="50" y="62" fill="#ffffff" fontSize="17" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Cavin's</text>
-      </svg>
-    )
-  },
-  {
-    id: 'milky-mist',
-    name: 'Milky Mist',
-    category: 'Beverages',
-    categoryKey: 'beverages',
-    desc: 'Fruit Milkshakes & Lassi',
-    color: '#0284c7',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#0369a1" />
-        <path d="M 15 50 Q 50 30 85 50 Q 50 70 15 50 Z" fill="#ffffff" opacity="0.9" />
-        <text x="50" y="74" fill="#ffffff" fontSize="11" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">Milky Mist</text>
-      </svg>
-    )
-  },
-  {
-    id: 'paper-boat',
-    name: 'Paper Boat',
-    category: 'Beverages',
-    categoryKey: 'beverages',
-    desc: 'Traditional Indian Fruit Drinks',
-    color: '#0284c7',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <rect x="8" y="15" width="84" height="70" rx="14" fill="#0f172a" />
-        <polygon points="50,22 72,52 28,52" fill="#f97316" />
-        <polygon points="50,22 60,52 40,52" fill="#fdba74" />
-        <text x="50" y="70" fill="#ffffff" fontSize="10" fontWeight="bold" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">paper boat</text>
-      </svg>
-    )
-  },
-  {
-    id: 'narasus',
-    name: 'Narasus',
-    category: 'Beverages',
-    categoryKey: 'beverages',
-    desc: 'Filter Coffee & Tea Beverages',
-    color: '#0284c7',
-    logoSvg: (
-      <svg viewBox="0 0 100 100" className="brand-logo-svg">
-        <circle cx="50" cy="50" r="42" fill="#78350f" />
-        <path d="M 35 48 C 35 38 65 38 65 48 L 60 62 C 60 68 40 68 40 62 Z" fill="#ffffff" />
-        <text x="50" y="78" fill="#fef08a" fontSize="11" fontWeight="900" textAnchor="middle" fontFamily="serif">Narasu's</text>
-      </svg>
-    )
-  }
-];
+  // 4. BISCUITS (10 brands)
+  biscuits: [
+    {
+      id: 'oreo',
+      name: 'Oreo',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#003d79" />
+          <ellipse cx="80" cy="28" rx="52" ry="21" fill="#1e3a8a" stroke="#60a5fa" strokeWidth="1.5" />
+          <text x="80" y="36" fill="#ffffff" fontSize="22" fontWeight="900" letterSpacing="2" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            OREO
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'britannia',
+      name: 'Britannia',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#ffffff" stroke="#f1f5f9" strokeWidth="1" />
+          <ellipse cx="80" cy="28" rx="60" ry="19" fill="#dc2626" />
+          <text x="80" y="33" fill="#ffffff" fontSize="15" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">
+            BRITANNIA
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'parle-g',
+      name: 'Parle-G',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#fef3c7" stroke="#e2e8f0" strokeWidth="1" />
+          <ellipse cx="40" cy="28" rx="17" ry="17" fill="#dc2626" />
+          <circle cx="40" cy="24" r="7" fill="#fde047" />
+          <text x="100" y="36" fill="#dc2626" fontSize="22" fontWeight="900" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            Parle-G
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'dark-fantasy',
+      name: 'Dark Fantasy',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#171717" />
+          <text x="80" y="22" fill="#d4af37" fontSize="10" letterSpacing="2" textAnchor="middle" fontFamily="sans-serif">
+            SUNFEAST
+          </text>
+          <text x="80" y="42" fill="#d4af37" fontSize="18" fontFamily="'Brush Script MT', cursive" fontStyle="italic" textAnchor="middle">
+            Dark Fantasy
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'good-day',
+      name: 'Good Day',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#f59e0b" />
+          <path d="M 42 38 Q 80 48 118 38" fill="none" stroke="#ffffff" strokeWidth="2.5" />
+          <text x="80" y="32" fill="#ffffff" fontSize="20" fontWeight="900" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            Good Day
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'unibic',
+      name: 'Unibic',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#1e3a8a" />
+          <text x="80" y="36" fill="#fbbf24" fontSize="22" fontWeight="900" letterSpacing="1.8" textAnchor="middle" fontFamily="sans-serif">
+            UNIBIC
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'bourbon',
+      name: 'Bourbon',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#381e11" />
+          <circle cx="30" cy="28" r="2.5" fill="#facc15" />
+          <circle cx="130" cy="28" r="2.5" fill="#facc15" />
+          <text x="80" y="37" fill="#facc15" fontSize="20" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="serif">
+            BOURBON
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'hide-seek',
+      name: 'Hide & Seek',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#312e81" />
+          <circle cx="28" cy="21" r="3.5" fill="#78350f" />
+          <circle cx="34" cy="34" r="2.8" fill="#78350f" />
+          <text x="88" y="36" fill="#fef08a" fontSize="17" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            Hide &amp; Seek
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'dukes',
+      name: 'Dukes',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#b91c1c" />
+          <text x="80" y="37" fill="#ffffff" fontSize="24" fontWeight="900" letterSpacing="0.5" textAnchor="middle" fontFamily="sans-serif">
+            Dukes
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'mcvities',
+      name: "McVitie's",
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#1e293b" />
+          <text x="80" y="36" fill="#fbbf24" fontSize="21" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="serif">
+            McVitie's
+          </text>
+        </svg>
+      )
+    }
+  ],
+
+  // 5. BEVERAGES (10 brands)
+  beverages: [
+    {
+      id: 'coca-cola',
+      name: 'Coca-Cola',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#dc2626" />
+          <text x="80" y="38" fill="#ffffff" fontSize="27" fontFamily="'Brush Script MT', cursive" fontStyle="italic" fontWeight="bold" textAnchor="middle">
+            Coca-Cola
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'pepsi',
+      name: 'Pepsi',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#004b93" />
+          <g transform="translate(36, 13)">
+            <circle cx="15" cy="15" r="14" fill="#ffffff" />
+            <path d="M 1 15 Q 15 7 29 15 L 29 1 C 22 1 8 1 1 5 Z" fill="#e11d48" />
+            <path d="M 1 15 Q 15 23 29 15 Q 15 30 1 15 Z" fill="#ffffff" />
+            <path d="M 1 15 Q 15 30 29 15 L 29 29 C 22 29 8 29 1 25 Z" fill="#1e40af" />
+          </g>
+          <text x="98" y="36" fill="#ffffff" fontSize="19" fontWeight="900" fontStyle="italic" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">
+            PEPSI
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'sprite',
+      name: 'Sprite',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#008b47" />
+          <circle cx="52" cy="18" r="6" fill="#facc15" />
+          <text x="86" y="38" fill="#ffffff" fontSize="24" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="sans-serif">
+            Sprite
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'thums-up',
+      name: 'Thums Up',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#0f172a" />
+          <path d="M 30 35 L 30 20 L 37 20 L 41 12 L 44 12 L 44 24 L 51 24 L 49 35 Z" fill="#dc2626" />
+          <text x="100" y="36" fill="#38bdf8" fontSize="18" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            Thums UP
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'fanta',
+      name: 'Fanta',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#ea580c" />
+          <path d="M 52 14 Q 57 7 65 11 Q 63 18 52 14 Z" fill="#16a34a" />
+          <text x="80" y="38" fill="#1e3a8a" fontSize="26" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            Fanta
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'red-bull',
+      name: 'Red Bull',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#0a192f" />
+          <circle cx="42" cy="28" r="13" fill="#fbbf24" />
+          <path d="M 34 30 L 50 24 M 50 30 L 34 24" stroke="#dc2626" strokeWidth="3.5" strokeLinecap="round" />
+          <text x="98" y="36" fill="#dc2626" fontSize="19" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            Red Bull
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'frooti',
+      name: 'Frooti',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#fbbf24" />
+          <text x="80" y="37" fill="#15803d" fontSize="24" fontWeight="900" letterSpacing="1" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            FROOTI
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'paper-boat',
+      name: 'Paper Boat',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#0f172a" />
+          <polygon points="34,32 52,32 43,17" fill="#f97316" />
+          <polygon points="43,17 48,32 38,32" fill="#fdba74" />
+          <text x="96" y="36" fill="#ffffff" fontSize="16" fontWeight="bold" letterSpacing="1" textAnchor="middle" fontFamily="sans-serif">
+            paper boat
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'cavins',
+      name: "Cavin's",
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#1d4ed8" />
+          <path d="M 26 24 Q 45 16 64 24" fill="none" stroke="#ffffff" strokeWidth="2.5" />
+          <text x="80" y="37" fill="#ffffff" fontSize="22" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
+            Cavin's
+          </text>
+        </svg>
+      )
+    },
+    {
+      id: 'mountain-dew',
+      name: 'Mountain Dew',
+      logoSvg: (
+        <svg viewBox="0 0 160 56" className="bh-brand-tile-svg">
+          <rect width="160" height="56" rx="12" fill="#052e16" />
+          <text x="80" y="37" fill="#84cc16" fontSize="19" fontWeight="900" fontStyle="italic" letterSpacing="1" textAnchor="middle" fontFamily="'Arial Black', sans-serif">
+            MTN DEW
+          </text>
+        </svg>
+      )
+    }
+  ]
+};
 
 const categoryList = [
-  { key: 'all', label: 'All Brands', count: 36, color: '#0f1f71' },
-  { key: 'snacks', label: 'Snacks', count: 7, color: '#e52328', circleImg: <SnacksCategoryImg /> },
-  { key: 'cake', label: 'Cake', count: 7, color: '#f59e0b', circleImg: <CakeCategoryImg /> },
-  { key: 'chocolate', label: 'Chocolate', count: 7, color: '#7c3aed', circleImg: <ChocolateCategoryImg /> },
-  { key: 'biscuits', label: 'Biscuits', count: 7, color: '#10b981', circleImg: <BiscuitsCategoryImg /> },
-  { key: 'beverages', label: 'Beverages', count: 8, color: '#0284c7', circleImg: <BeveragesCategoryImg /> }
+  { key: 'snacks', label: 'Snacks', color: '#e52328', circleImg: <SnacksCategoryImg /> },
+  { key: 'cake', label: 'Cake', color: '#d97706', circleImg: <CakeCategoryImg /> },
+  { key: 'chocolate', label: 'Chocolate', color: '#6d28d9', circleImg: <ChocolateCategoryImg /> },
+  { key: 'biscuits', label: 'Biscuits', color: '#059669', circleImg: <BiscuitsCategoryImg /> },
+  { key: 'beverages', label: 'Beverages', color: '#0284c7', circleImg: <BeveragesCategoryImg /> }
 ];
 
-const BrandHandling = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
+// Pointer offset percentage aligned with category circles on desktop
+const pointerPositions = {
+  snacks: '10%',
+  cake: '30%',
+  chocolate: '50%',
+  biscuits: '70%',
+  beverages: '90%'
+};
 
-  const handleCategorySelect = (key) => {
-    setActiveCategory(key);
-    setTimeout(() => {
-      const targetElement = document.getElementById(`cat-block-${key}`) || document.querySelector('.bh-brands-section');
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
+const BrandHandling = () => {
+  const [activeCategory, setActiveCategory] = useState('chocolate');
+
+  const handleCategoryClick = (key) => {
+    if (activeCategory === key) {
+      setActiveCategory(null);
+    } else {
+      setActiveCategory(key);
+    }
+  };
+
+  const handleClosePopup = () => {
+    setActiveCategory(null);
   };
 
   const handleBrandClick = (brand) => {
-    const searchQuery = encodeURIComponent(`${brand.name} ${brand.category}`);
+    const searchQuery = encodeURIComponent(`${brand.name} vending products`);
     window.open(`https://www.google.com/search?q=${searchQuery}`, '_blank', 'noopener,noreferrer');
   };
 
-  const filteredBrands = activeCategory === 'all'
-    ? brandData
-    : brandData.filter(b => b.categoryKey === activeCategory);
+  const activeCategoryObj = categoryList.find(c => c.key === activeCategory);
+  const brandsToShow = activeCategory ? (categoryBrands[activeCategory] || []) : [];
 
   return (
     <section id="brand-handling" className="brand-handling">
-      {/* Top Banner section matching uploaded mockup image */}
+      {/* Top Banner section */}
       <div className="bh-header-banner">
         <div className="container">
           <div className="bh-title-wrapper">
@@ -775,113 +956,104 @@ const BrandHandling = () => {
             <span></span><span></span><span></span><span></span><span></span>
           </div>
 
-          {/* 5 Main Hero Circles */}
+          {/* 5 Main Hero Category Circles */}
           <div className="bh-categories-row">
-            {categoryList.filter(c => c.key !== 'all').map((cat) => (
-              <div 
-                key={cat.key} 
-                className={`bh-cat-card ${activeCategory === cat.key ? 'active' : ''}`}
-                onClick={() => handleCategorySelect(cat.key)}
-              >
-                <div className="bh-circle-wrapper" style={{ borderColor: cat.color }}>
-                  {cat.circleImg}
-                </div>
-                <button 
-                  className="bh-cat-pill" 
-                  style={{ backgroundColor: cat.color }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleCategorySelect(cat.key);
-                  }}
+            {categoryList.map((cat) => {
+              const isActive = activeCategory === cat.key;
+              return (
+                <div 
+                  key={cat.key} 
+                  className={`bh-cat-card ${isActive ? 'active' : ''}`}
+                  onClick={() => handleCategoryClick(cat.key)}
                 >
-                  {cat.label}
-                </button>
-              </div>
-            ))}
+                  <div 
+                    className="bh-circle-wrapper" 
+                    style={{ 
+                      borderColor: cat.color,
+                      boxShadow: isActive ? `0 10px 28px rgba(0,0,0,0.08), 0 0 0 4px ${cat.color}25` : undefined
+                    }}
+                  >
+                    {isActive && <CircleRayMarks color={cat.color} />}
+                    {cat.circleImg}
+                  </div>
+                  <button 
+                    className={`bh-cat-pill ${isActive ? 'active-pill' : ''}`} 
+                    style={{ 
+                      backgroundColor: cat.color
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCategoryClick(cat.key);
+                    }}
+                  >
+                    {cat.label}
+                  </button>
+                </div>
+              );
+            })}
           </div>
-        </div>
-      </div>
 
-      {/* Sequential Brands Grid Section */}
-      <div className="bh-brands-section">
-        <div className="container">
-          {/* Category Filter Tabs */}
-          <div className="bh-tabs-nav">
-            {categoryList.map((cat) => (
-              <button
-                key={cat.key}
-                className={`bh-tab-btn ${activeCategory === cat.key ? 'active' : ''}`}
-                style={activeCategory === cat.key ? { backgroundColor: cat.color, borderColor: cat.color } : {}}
-                onClick={() => handleCategorySelect(cat.key)}
+          {/* Minimalist Pop-up Card right below categories */}
+          {activeCategory && activeCategoryObj && (
+            <div 
+              className="bh-popup-card"
+              style={{ '--cat-color': activeCategoryObj.color }}
+            >
+              {/* Sleek Pointer speech-bubble notch + Minimalist category pill */}
+              <div 
+                className="bh-popup-pointer-anchor"
+                style={{ left: pointerPositions[activeCategory] || '50%' }}
               >
-                {cat.label} <span className="bh-tab-badge">{cat.count}</span>
-              </button>
-            ))}
-          </div>
+                <div 
+                  className="bh-popup-notch" 
+                  style={{ borderBottomColor: activeCategoryObj.color }}
+                />
+                <div className="bh-popup-notch-inner" />
 
-          {/* If ALL BRANDS is selected, show Sequential Category Blocks */}
-          {activeCategory === 'all' ? (
-            <div className="bh-sequential-blocks">
-              {categoryList.filter(c => c.key !== 'all').map((cat) => {
-                const catBrands = brandData.filter(b => b.categoryKey === cat.key);
-                return (
-                  <div key={cat.key} className="bh-category-block" id={`cat-block-${cat.key}`}>
-                    <div className="bh-block-header">
-                      <span className="bh-block-badge" style={{ backgroundColor: cat.color }}>
-                        {cat.label} ({catBrands.length} Brands)
-                      </span>
-                      <div className="bh-block-line" style={{ background: `linear-gradient(90deg, ${cat.color}, transparent)` }}></div>
-                    </div>
-
-                    <div className="bh-grid">
-                      {catBrands.map((brand) => (
-                        <div key={brand.id} className="bh-brand-card" onClick={() => handleBrandClick(brand)} style={{ cursor: 'pointer' }}>
-                          <div className="bh-logo-box">
-                            {brand.logoSvg}
-                          </div>
-                          <div className="bh-brand-info">
-                            <h4 className="bh-brand-name">{brand.name}</h4>
-                            <span className="bh-brand-tag" style={{ color: brand.color, backgroundColor: `${brand.color}15` }}>
-                              {brand.category}
-                            </span>
-                            <p className="bh-brand-desc">{brand.desc}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            /* Single Category Filtered View */
-            <div className="bh-single-category">
-              <div className="bh-block-header">
-                <span className="bh-block-badge" style={{ backgroundColor: categoryList.find(c => c.key === activeCategory)?.color }}>
-                  {categoryList.find(c => c.key === activeCategory)?.label} ({filteredBrands.length} Brands)
-                </span>
-                <div className="bh-block-line" style={{ background: `linear-gradient(90deg, ${categoryList.find(c => c.key === activeCategory)?.color}, transparent)` }}></div>
+                <div 
+                  className="bh-popup-pill-text"
+                  style={{ backgroundColor: activeCategoryObj.color }}
+                >
+                  {activeCategoryObj.label}
+                </div>
               </div>
 
-              <div className="bh-grid">
-                {filteredBrands.map((brand) => (
-                  <div key={brand.id} className="bh-brand-card" onClick={() => handleBrandClick(brand)} style={{ cursor: 'pointer' }}>
-                    <div className="bh-logo-box">
-                      {brand.logoSvg}
-                    </div>
-                    <div className="bh-brand-info">
-                      <h4 className="bh-brand-name">{brand.name}</h4>
-                      <span className="bh-brand-tag" style={{ color: brand.color, backgroundColor: `${brand.color}15` }}>
-                        {brand.category}
-                      </span>
-                      <p className="bh-brand-desc">{brand.desc}</p>
-                    </div>
-                  </div>
+              {/* Minimalist Close Button on top right */}
+              <button 
+                className="bh-popup-close-btn"
+                onClick={handleClosePopup}
+                aria-label="Close popup"
+              >
+                <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" strokeWidth="2.4" fill="none" strokeLinecap="round">
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                  <line x1="6" y1="18" x2="18" y2="6" />
+                </svg>
+              </button>
+
+              {/* Brands Grid (2 rows x 5 columns) */}
+              <div className="bh-popup-grid">
+                {brandsToShow.map((brand) => (
+                  <button
+                    key={brand.id}
+                    className="bh-brand-tile"
+                    onClick={() => handleBrandClick(brand)}
+                    title={`Search ${brand.name}`}
+                  >
+                    {brand.logoSvg}
+                  </button>
                 ))}
               </div>
             </div>
           )}
         </div>
+      </div>
+
+      {/* Subtle Minimalist Bottom Wave */}
+      <div className="bh-bottom-wave-container">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" className="bh-bottom-wave-svg">
+          <path d="M 0 35 Q 360 80 720 28 Q 1080 -15 1440 35 L 1440 90 L 0 90 Z" fill="#0f1f71" />
+          <path d="M 0 50 Q 360 18 720 58 Q 1080 98 1440 45 L 1440 54 Q 1080 108 720 68 Q 360 28 0 60 Z" fill="#e52328" opacity="0.85" />
+        </svg>
       </div>
     </section>
   );
